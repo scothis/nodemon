@@ -1,106 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>remy/nodemon @ GitHub</title>
-  <style>
-  body, html {
-    background: white;
-    border: 0px;
-    color: #333;
-    font-family: Georgia, 'Times New Roman', Times;
-    font-size: 16px;
-    line-height: 150%;
-    margin: 0px;
-    padding: 0px;
-  }
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-  body {
-    width: 520px;
-    margin: auto;
-    padding-bottom: 20px;
-  }
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-  h2 {
-    display: block;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin: 0.83em 0px;
-    color: #666;
-    font-weight: normal;
-    margin-bottom: 0px;
-  }
+    <title>Nodemon by remy</title>
+  </head>
 
-  hr {
-    border: 1px solid #666;
-    display: block;
-    margin: 0.5em auto;
-  }
+  <body>
 
-  blockquote {
-    font-style: italic;
-  }
+    <header>
+      <div class="container">
+        <h1>Nodemon</h1>
+        <h2>Monitor for any changes in your node.js application and automatically restart the server - perfect for development</h2>
 
-  a {
-    background: #F5F7BB;
-    color: #333;
-    padding: 1px 2px;
-    text-decoration: none;
-  }
+        <section id="downloads">
+          <a href="https://github.com/remy/nodemon/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/remy/nodemon/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/remy/nodemon" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
 
-  a:hover {
-    background: none;
-    color: #666;
-  }
-  
-  .download a { /* should be a:has(img) */
-    background: none;
-  }
-
-  code {
-    font-weight: bold;
-  }
-
-  pre {
-    background: #333;
-    background: #333 -webkit-gradient(linear, 0% 0%, 0% 75%, from(#000), to(#0F2925)) fixed;
-    background: #333 -moz-linear-gradient(top, #000, #0F2925) fixed;
-    color: #eee;  
-    border-radius: 5px;
-    padding: 10px 20px;
-    overflow-x: auto;
-  }
-  </style>
-</head>
-<body>
-<a href="http://github.com/remy/nodemon"><img style="position: fixed; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-<div id="container">
-  <div class="download">
-    <a href="http://github.com/remy/nodemon/zipball/master">
-      <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-    <a href="http://github.com/remy/nodemon/tarball/master">
-      <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-  </div>
-    <h1><a href="http://github.com/remy/nodemon">nodemon</a></h1>
+    <div class="container">
+      <section id="main_content">
+        <h1>nodemon</h1>
 
 <p>For use during development of a node.js based application. </p>
 
-<p><code>nodemon</code> will watch all the files in the directory that nodemon was started, and if they change, it will automatically restart your node application.</p>
+<p>nodemon will watch the files in the directory that nodemon was started, and if they change, it will automatically restart your node application.</p>
 
-<p><code>nodemon</code> does <strong>not</strong> require <em>any</em> changes to your code or method of development. <code>nodemon</code> simply wraps your node application and keeps an eye on any files that have changed.</p>
+<p>nodemon does <strong>not</strong> require <em>any</em> changes to your code or method of development. nodemon simply wraps your node application and keeps an eye on any files that have changed. Remember that nodemon is a replacement wrapper for <code>node</code>, think of it as replacing the word "node" on the command line when you run your script.</p>
 
-<h2 id="installation">Installation</h2>
+<h1>Installation</h1>
 
-<p>Either through forking or:</p>
+<p>Either through forking or by using <a href="http://npmjs.org">npm</a> (the recommended way):</p>
 
-<pre><code>npm install nodemon
+<pre><code>npm install -g nodemon
 </code></pre>
 
-<p>And <code>nodemon</code> will be installed in to your bin path.</p>
+<p>And nodemon will be installed in to your bin path. Note that as of npm v1, you must explicitly tell npm to install globally as nodemon is a command line utility.</p>
 
-<h2 id="usage">Usage</h2>
+<h1>Usage</h1>
 
-<p><code>nodemon</code> wraps your application, so you can pass all the arguments you would normally pass to your app:</p>
+<p>nodemon wraps your application, so you can pass all the arguments you would normally pass to your app:</p>
 
 <pre><code>nodemon [your node app]
 </code></pre>
@@ -112,20 +59,84 @@
 
 <p>Any output from this script is prefixed with <code>[nodemon]</code>, otherwise all output from your application, errors included, will be echoed out as expected.</p>
 
-<h2 id="ignoring_files">Ignoring files</h2>
+<p>nodemon also supports running and monitoring <a href="http://jashkenas.github.com/coffee-script/">coffee-script</a> apps:</p>
 
-<p>In some cases you will want to ignore some specific files, directories or file patterns, to prevent nodemon from prematurely restarting your application.  </p>
+<pre><code>nodemon server.coffee
+</code></pre>
 
-<p>The <code>nodemon-ignore</code> file is automatically created in the directory that you run your application from, so that you can have application specific ignore lists. </p>
+<p>If no script is given, nodemon will test for a <code>package.json</code> file and if found, will run the file associated with the <em>main</em> property (<a href="https://github.com/remy/nodemon/issues/14">ref</a>).</p>
 
-<p>You can use the <a href="http://github.com/remy/nodemon/blob/master/nodemon-ignore.example">example ignore file</a> as a basis for your <code>nodemon</code>, but it&#8217;s very simple to create your own:</p>
+<p>You can also pass the debug flag to node through the command line as you would normally:</p>
 
-<pre><code># this is just a comment
+<pre><code>nodemon --debug ./server.js 80
+</code></pre>
+
+<p>If you have a <code>package.json</code> file for your app, you can omit the main script entirely and nodemon will read the <code>package.json</code> for the <code>main</code> property and use that value as the app.</p>
+
+<h1>Automatic re-running</h1>
+
+<p>nodemon was original written to restart hanging processes such as web servers, but now supports apps that cleanly exit. If your script exits cleanly, nodemon will continue to monitor the directory (or directories) and restart the script if there are any changes.</p>
+
+<h1>Manual restarting</h1>
+
+<p>Whilst nodemon is running, if you need to manually restart your application, instead of stopping and restart nodemon, you can simply type <code>rs</code> with a carridge return, and nodemon will restart your process.</p>
+
+<h1>Running non-node scripts</h1>
+
+<p>nodemon can also be used to execute and monitor other programs. nodemon will read the file extension of the script being run and monitor that extension instead of .js if there's no .nodemonignore:</p>
+
+<pre><code>nodemon --exec "python -v" ./app.py
+</code></pre>
+
+<p>Now nodemon will run <code>app.py</code> with python in verbose mode (note that if you're not passing args to the exec program, you don't need the quotes), and look for new or modified files with the <code>.py</code> extension.</p>
+
+<h1>Monitoring multiple directories</h1>
+
+<p>By default nodemon monitors the current working directory. If you want to take control of that option, use the <code>--watch</code> option to add specific paths:</p>
+
+<pre><code>nodemon --watch app --watch libs app/server.js
+</code></pre>
+
+<p>Now nodemon will only restart if there are changes in the <code>./app</code> or <code>./libs</code> directory. By default nodemon will traverse sub-directories, so there's no need in explicitly including sub-directories.</p>
+
+<h1>Specifying extension watch list</h1>
+
+<p>By default, nodemon looks for files with the <code>.js</code> extension. If you use the <code>--exec</code> option and monitor <code>app.py</code> nodemon will monitor files with the extension of <code>.py</code>. However, you can specify your own list with the <code>-e</code> switch like so:</p>
+
+<pre><code>nodemon -e js,css,html
+</code></pre>
+
+<p>Or with alternative syntax:</p>
+
+<pre><code>nodemon --ext '.js|.css|.html'
+</code></pre>
+
+<p>Now nodemon will restart on any changes to files in the directory (or subdirectories) with the extensions .js, .css or .html.</p>
+
+<h1>Delaying restarting</h1>
+
+<p>In some situations, you may want to wait until a number of files have changed. The timeout before checking for new file changes is 1 second. If you're uploading a number of files and it's taking some number of seconds, this could cause your app to restart multiple time unnecessarily.</p>
+
+<p>To add an extra throttle, or delay restarting, use the <code>--delay</code> command:</p>
+
+<pre><code>nodemon --delay 10 server.js
+</code></pre>
+
+<p>The delay figure is number of seconds to delay before restarting. So nodemon will only restart your app the given number of seconds after the <em>last</em> file change.</p>
+
+<h1>Ignoring files</h1>
+
+<p>By default, if nodemon will only restart when a <code>.js</code> JavaScript file changes.  In some cases you will want to ignore some specific files, directories or file patterns, to prevent nodemon from prematurely restarting your application.</p>
+
+<p>You can use the <a href="http://github.com/remy/nodemon/blob/master/nodemonignore.example">example ignore file</a> (note that this example file is not hidden - you must rename it to <code>.nodemonignore</code>) as a basis for your nodemon, but it's very simple to create your own:</p>
+
+<pre><code># this is my ignore file with a nice comment at the top
 
 /vendor/*     # ignore all external submodules
 /public/*     # static files
 ./README.md   # a specific file
 *.css         # ignore any CSS files too
+:(\d)*\.js    # monitor javascript files with only digits in their name
 </code></pre>
 
 <p>The ignore file accepts:</p>
@@ -135,55 +146,38 @@
 <li>Blank lines</li>
 <li>Specific files</li>
 <li>File patterns (this is converted to a regex, so you have full control of the pattern)</li>
-</ul>
+<li>Unescaped regex's begining with <code>:</code>.</li>
+</ul><p><strong>Note</strong> the <code>.nodemonignore</code> file is read from the directory you run nodemon from, <em>not</em> from the location of the node script you're running.</p>
 
-<h2 id="prerequisites">Prerequisites</h2>
+<h1>Controlling shutdown of your script</h1>
 
-<p><code>nodemon</code> currently depends on the <a href="http://unixhelp.ed.ac.uk/CGI/man-cgi?find">unix find</a> command (which also is installed on Macs)</p>
+<p>nodemon sends a kill signal to your application when it sees a file update. If you need to clean up on shutdown inside your script you can capture the kill signal and handle it yourself.</p>
 
-<h2>Author</h2>
-<p>Remy Sharp: <a href="http://github.com/remy">github</a>, <a href="http://twitter.com/rem">twitter</a>, <a href="http://remysharp.com">blog</a><br/></p>
+<p>The following example will listen once for the <code>SIGUSR2</code> signal (used by nodemon to restart), run the clean up process and then kill itself for nodemon to continue control:</p>
 
-<h2>Download</h2>
-<p>
-  You can download this project in either
-  <a href="http://github.com/remy/nodemon/zipball/master">zip</a> or
-  <a href="http://github.com/remy/nodemon/tarball/master">tar</a> formats.
-</p>
-<p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-  by running:
-  <pre>$ git clone git://github.com/remy/nodemon</pre>
-</p>
+<pre><code>process.once('SIGUSR2', function () {
+  gracefulShutdown(function () {
+    process.kill(process.pid, 'SIGUSR2'); 
+  })
+});
+</code></pre>
 
-<div class="footer">
-  get the source code on GitHub : <a href="http://github.com/remy/nodemon">remy/nodemon</a>
-</div>
+<p>Note that the <code>process.kill</code> is <em>only</em> called once your shutdown jobs are complete. Hat tip to <a href="http://www.benjiegillam.com/2011/08/node-js-clean-restart-and-faster-development-with-nodemon/">Benjie Gillam</a> for writing technique this up.</p>
 
-<h2>License</h2>
-<p>The MIT License
+<h1>Help! My changes aren't being detected!</h1>
 
-Copyright (c) 2010 Remy Sharp
+<p>nodemon has three potential methods it uses to look for file changes. First, it polls using the find command to search for files modified within the last second. This method works on systems with a BSD based find (Mac, for example). </p>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+<p>Next it tries using node's <code>fs.watch</code>. <code>fs.watch</code> will not always work however, and nodemon will try and detect if this is the case by writing a file to the tmp directory and seeing if fs.watch is triggered when it's removed. If nodemon finds that fs.watch was not triggered, it will then fall back to the third method (called legacy watch), which works by statting each file in your working directory looking for changes to the last modified time. This is the most cpu intensive method, but it may be the only option on some systems.</p>
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+<p>In certain cases, like when where you are working on a different drive than your tmp directory is on, <code>fs.watch</code> may give you a false positive. You can force nodemon to start using the most compatible legacy method by passing the -L switch, e.g. <code>nodemon -L /my/odd/file.js</code>.</p>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.</p>
+<h1>License</h1>
 
-</div>
+<p>MIT <a href="http://rem.mit-license.org">http://rem.mit-license.org</a></p>
+      </section>
+    </div>
 
-  
-</body>
+    
+  </body>
 </html>
